@@ -1,5 +1,7 @@
+require_relative '../utils/reader'
+
 def which_floor
-  instructions = get_instructions
+  instructions = Reader.get_instructions 'input'
   up_one = instructions.scan(/\(/).size
   down_one = instructions.scan(/\)/).size
 
@@ -7,7 +9,7 @@ def which_floor
 end
 
 def which_char
-  instructions = get_instructions
+  instructions = Reader.get_instructions 'input'
   floor = 0
   instructions.split('').each_with_index do |char, index|
     if char == '('
@@ -24,11 +26,5 @@ def which_char
   return -1
 end
 
-def get_instructions
-  whole_file = File.readlines 'input'
-  whole_file[0]
-end
-
-
-# which_floor
+which_floor
 which_char
