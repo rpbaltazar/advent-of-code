@@ -23,7 +23,7 @@ def which_char
       return index+1
     end
   end
-  return -1
+  -1
 end
 
 which_floor
