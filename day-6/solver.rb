@@ -1,5 +1,4 @@
 require_relative '../utils/reader'
-require 'byebug'
 
 def get_instruction(str)
   coordinates = str.scan(/\d+,\d+/)
@@ -109,13 +108,6 @@ def init(part)
     set = get_instruction string
     method = set[:instruction].tr(' ', '_')
     send("#{method}#{part}", set[:coordinates])
-    # when 'turn on'
-    #   turn_on set[:coordinates]
-    # when 'turn off'
-    #   turn_off set[:coordinates]
-    # when 'toggle'
-    #   toggle set[:coordinates]
-    # end
   end
 
   puts send("result#{part}")
