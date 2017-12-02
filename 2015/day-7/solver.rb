@@ -17,7 +17,6 @@ def signal_for(identifier)
 end
 
 def compute_value(parsed)
-#  debugger
   case parsed.length
   when 4
     # id AND/OR/LSHIFT/RSHIFT id -> res
