@@ -12,7 +12,7 @@ class Solver
 
   def initialize
     # setup the data with initial values
-    @grid = Array.new(1000) { Array.new(1000, false) }
+    @grid = Array.new(1000) { Array.new(1000, 0) }
   end
 
   def solve(input_name)
@@ -21,23 +21,19 @@ class Solver
       coordinates = extract_coordinates instruction
       run_action(action, *coordinates)
     end
-    grid.flatten.count(true)
+    grid.flatten.sum
   end
 
   def turn_on(x, y)
-    grid[x][y] = true
+    grid[x][y] += 1
   end
 
   def toggle(x, y)
-    if grid[x][y] == true
-      grid[x][y] = false
-    elsif grid[x][y] == false
-      grid[x][y] = true
-    end
+    grid[x][y] += 2
   end
 
   def turn_off(x, y)
-    grid[x][y] = false
+    grid[x][y] -= 1 unless grid[x][y].zero?
   end
 
   def extract_coordinates(instruction)
