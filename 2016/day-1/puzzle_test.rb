@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './solver'
+require './puzzle'
 
 class PuzzleTest < Minitest::Test
   def test_part_one_example_one

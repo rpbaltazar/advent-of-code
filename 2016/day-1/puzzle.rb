@@ -1,17 +1,5 @@
 require 'ostruct'
 
-class Solver
-  require_relative '../../utils/reader'
-  def initialize
-    @input = Reader.get_instructions('input').split ', '
-  end
-
-  def solve
-    puzzle = Puzzle.new(@input)
-    puzzle.solve
-  end
-end
-
 class Puzzle
   ROTATION = {
     'R' => 1,
@@ -80,8 +68,6 @@ class Puzzle
       range.each { |x| visit_node(x, @pos_y) }
     end
   end
-
-
 
   def visit_node(pos_x, pos_y)
     @visited[pos_x] ||= {}
